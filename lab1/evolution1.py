@@ -1,6 +1,6 @@
 import random
 import matplotlib.pyplot as plt
-
+#1
 def f(x, y):
     return x**2-abs(y)
 
