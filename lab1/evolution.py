@@ -65,6 +65,15 @@ def crossover(parent1, parent2):
 
     return child1, child2
 
+def save_picture(best_values):
+    plt.figure(figsize=(10,6), dpi=300)
+    plt.plot(best_values, linewidth=1)
+    plt.xlabel("Ітерація")
+    plt.ylabel("Найкраще значення")
+    plt.title("Прогрес ГА")
+    plt.grid(True)
+    plt.savefig("evolution.png")
+
 def main():
     population = pop_generator(count_of_pop, cords)
     best_values = []
@@ -95,13 +104,7 @@ def main():
     print("Максимум", function(best_ind[0], best_ind[1]))
     print("Точка:", best_ind)
 
-    plt.figure(figsize=(10,6), dpi=300)
-    plt.plot(best_values, linewidth=1)
-    plt.xlabel("Ітерація")
-    plt.ylabel("Найкраще значення")
-    plt.title("Прогрес ГА")
-    plt.grid(True)
-    plt.savefig("evolution.png")
+    save_picture(best_values)
 
 if __name__ == "__main__":
     main()
